@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dist/css/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h2>YAPILACAKLAR LİSTESİ</h2>
+      </header>
+      <form id="todo-form">
+        <input
+          id="add-input"
+          type="text"
+          placeholder="Bir yapılacak nesnesi ekleyin.."
+        />
+        <button id="add-btn" type="submit">Ekle</button>
+      </form>
+      <section id="filter-list">
+        <div id="filter-title">Filtrele:</div>
+        <select id="dropdown">
+          <option value="all">Tümü</option>
+          <option value="todo">Yapılacak</option>
+          <option value="done">Yapıldı</option>
+        </select>
+      </section>
+
+      <section id="todo-list">
+        <!-- <div class="list-group">
+          <p>Alışveriş Yap</p>
+          <div class="list-item">
+            <input id="check" type="checkbox" />
+            <button id="delete-btn">SİL</button>
+          </div> -->
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
