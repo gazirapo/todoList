@@ -55,7 +55,7 @@ function removeItem(id) {
   }
 }
 
-// complated tasks
+// completed tasks
 
 function changeStatus(event, id) {
   const findItem = todos.find((item) => id === item.id);
