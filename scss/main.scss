@@ -1,3 +1,5 @@
+$small: 380px;
+
 * {
   margin: 0;
   padding: 0;
@@ -17,41 +19,64 @@ body {
     margin: 0 auto;
     padding: 40px;
     background-color: #dae5d0;
-    overflow: hidden;
+
+    @media screen and (max-width: $small) {
+      padding: 30px 10px;
+    }
 
     header h2 {
       text-align: center;
       margin: 10px 0;
+
+      @media screen and (max-width: $small) {
+        font-size: 16px;
+      }
     }
 
-    form {
+    #todo-form {
       width: 100%;
       padding: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
 
+      @media screen and (max-width: $small) {
+        margin-bottom: 20px;
+      }
+
       #add-input {
         width: 100%;
-        padding: 7px;
+        padding: 9px;
         border: none;
         outline: none;
         font-size: 17px;
 
+        @media screen and (max-width: $small) {
+          padding: 1px;
+        }
+
         &::placeholder {
-          font-size: 17px;
+          font-size: 15px;
           padding: 5px;
+
+          @media screen and (max-width: $small) {
+          }
         }
       }
 
       #add-btn {
-        padding: 5px 25px;
+        padding: 7px 25px;
         margin-left: 20px;
         font-size: 18px;
         background-color: aqua;
         border: none;
         border-radius: 5px;
         cursor: pointer;
+
+        @media screen and (max-width: $small) {
+          padding: 3px 10px;
+          font-size: 15px;
+        }
       }
     }
 
@@ -62,6 +87,10 @@ body {
       margin: 15px 10px 0 0;
       font-size: 18px;
 
+      @media screen and (max-width: $small) {
+        font-size: 15px;
+      }
+
       #filter-title {
         margin-right: 10px;
       }
@@ -69,11 +98,19 @@ body {
       #dropdown {
         font-size: 17px;
         border: none;
+
+        @media screen and (max-width: $small) {
+          font-size: 15px;
+        }
       }
     }
 
     #todo-list {
       width: 100%;
+
+      @media screen and (max-width: $small) {
+        margin-top: 40px;
+      }
 
       .list-group {
         display: flex;
@@ -81,10 +118,19 @@ body {
         align-items: center;
         background-color: #fff;
         margin: 20px 10px;
-        padding: 10px;
+        padding: 6px;
+
+        @media screen and (max-width: $small) {
+          padding: 3px;
+        }
 
         p {
           font-size: 18px;
+          margin-left: 5px;
+
+          @media screen and (max-width: $small) {
+            font-size: 16px;
+          }
 
           &.line {
             text-decoration: line-through;
@@ -100,6 +146,11 @@ body {
             height: 20px;
             width: 25px;
             margin-right: 10px;
+
+            @media screen and (max-width: $small) {
+              height: 15px;
+              width: 20px;
+            }
           }
 
           #delete-btn {
@@ -109,6 +160,10 @@ body {
             border: none;
             border-radius: 5px;
             cursor: pointer;
+
+            @media screen and (max-width: $small) {
+              padding: 3px 15px;
+            }
           }
         }
       }

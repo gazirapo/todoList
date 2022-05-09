@@ -4,6 +4,17 @@ const filtered = document.getElementById("dropdown");
 
 let todos = [];
 
+// local storage
+
+window.addEventListener("load", function () {
+  if (localStorage.getItem("todos")) {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  section.innerHTML = todos.map((item) => todoItem(item)).join("");
+});
+
+//  html template
+
 const todoItem = (item) => {
   return `<div class="list-group">
   <p ${item.isDone ? "class = 'line'" : ""}>${item.title}  </p>
@@ -16,6 +27,8 @@ const todoItem = (item) => {
 </div> `;
 };
 
+// add tasks
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -27,7 +40,7 @@ form.addEventListener("submit", function (e) {
   };
 
   todos.push(newItem);
-
+  localStorage.setItem("todos", JSON.stringify(todos));
   section.innerHTML = todos.map((item) => todoItem(item)).join("");
   document.getElementById("add-input").value = "";
 });
@@ -38,6 +51,7 @@ function removeItem(id) {
   if (confirm("Silmek istediğine emin misin ?")) {
     todos = todos.filter((item) => id !== item.id);
     section.innerHTML = todos.map((item) => todoItem(item)).join("");
+    localStorage.setItem("todos", JSON.stringify(todos));
   }
 }
 
@@ -51,6 +65,7 @@ function changeStatus(event, id) {
     findItem.isDone = false;
   }
   section.innerHTML = todos.map((item) => todoItem(item)).join("");
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 //  filter tasks
@@ -64,5 +79,6 @@ filtered.addEventListener("change", function (e) {
   if (e.target.value === "todo") {
     filteredTodos = todos.filter((item) => item.isDone === false);
   }
+
   section.innerHTML = filteredTodos.map((item) => todoItem(item)).join("");
 });
